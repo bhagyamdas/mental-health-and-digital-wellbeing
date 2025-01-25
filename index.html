@@ -5,30 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Digital Well-Being Tracker</title>
   <style>
-    /* Basic styles for navigation and page layout */
-    body {
-      font-family: Arial, sans-serif;
+    /* Basic Reset */
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f4f4f9;
+      box-sizing: border-box;
     }
 
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      font-weight: 300;
+    }
+
+    /* Global Styling */
     header {
-      background-color: #34495e;
-      color: white;
+      background: #34495e;
+      color: #fff;
       padding: 20px;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+      letter-spacing: 1px;
     }
 
     header nav {
-      margin-top: 10px;
+      margin-top: 20px;
     }
 
     header nav a {
-      color: white;
+      color: #fff;
       text-decoration: none;
       margin: 0 15px;
       font-size: 1.2em;
+      transition: color 0.3s ease;
     }
 
     header nav a:hover {
@@ -36,117 +57,194 @@
     }
 
     .container {
-      max-width: 800px;
+      width: 90%;
       margin: 0 auto;
-      padding: 30px;
+    }
+
+    section {
+      padding: 50px 0;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+
+    .section-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
       text-align: center;
     }
 
-    .submit-btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #2ecc71;
-      color: white;
-      border: none;
+    .feature-card {
+      background: #fff;
+      padding: 20px;
+      margin: 20px;
+      width: 280px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
       cursor: pointer;
     }
 
-    .submit-btn:hover {
-      background-color: #27ae60;
+    .feature-card:hover {
+      transform: translateY(-10px);
     }
 
-    .result {
-      font-size: 1.2em;
-      margin-top: 20px;
+    .feature-card i {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #2ecc71;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 1em;
+      color: #7f8c8d;
+    }
+
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Footer Styling */
+    footer {
+      background: #34495e;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 1em;
+    }
+
+    footer a {
+      color: #f39c12;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile Responsiveness */
+    @media screen and (max-width: 768px) {
+      .section-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .feature-card {
+        width: 90%;
+      }
+
+      header nav a {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- HEADER with Navigation -->
-<header>
-  <h1>Digital Well-Being Tracker</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#assessment">Take the Assessment</a>
-    <a href="#results">View Results</a>
-  </nav>
-</header>
+  <header>
+    <h1>Digital Well-Being Tracker</h1>
+    <p>Track, Manage & Improve Your Mental and Digital Health</p>
 
-<!-- HOME Section -->
-<section id="home" class="container">
-  <h2>Welcome to the Digital Well-Being Tracker</h2>
-  <p>Track your digital habits, take an assessment, and receive personalized feedback to improve your mental well-being.</p>
-  <p><a href="#assessment" class="submit-btn">Take the Assessment</a></p>
-</section>
+    <!-- Navigation Menu -->
+    <nav>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#reminders">Break Reminders</a>
+      <a href="#tools">Interactive Tools</a>
+      <a href="#resources">Resources</a>
+      <a href="#community">Community Hub</a>
+      <a href="#ai-advisor">AI Advisor</a>
+    </nav>
+  </header>
 
-<!-- ASSESSMENT Section -->
-<section id="assessment" class="container">
-  <h2>Digital Well-Being Assessment</h2>
-  <form id="assessment-form">
-    <h3>How often do you feel stressed due to screen time?</h3>
-    <label><input type="radio" name="stress" value="Low"> Low</label><br>
-    <label><input type="radio" name="stress" value="Medium"> Medium</label><br>
-    <label><input type="radio" name="stress" value="High"> High</label><br>
+  <!-- Digital Health Dashboard -->
+  <section id="dashboard" class="fade-in">
+    <div class="container">
+      <h2>1. Digital Health Dashboard</h2>
+      <p>This is your personalized dashboard for tracking your digital health and well-being. Monitor your screen time, habits, and progress.</p>
+    </div>
+  </section>
 
-    <h3>How much time do you spend on your phone per day?</h3>
-    <label><input type="radio" name="phone-time" value="Less than 2 hours"> Less than 2 hours</label><br>
-    <label><input type="radio" name="phone-time" value="2-4 hours"> 2-4 hours</label><br>
-    <label><input type="radio" name="phone-time" value="More than 4 hours"> More than 4 hours</label><br>
+  <!-- Break & Relaxation Reminders -->
+  <section id="reminders" class="fade-in">
+    <div class="container">
+      <h2>2. Break & Relaxation Reminders</h2>
+      <p>Get gentle reminders to take breaks, relax, and recharge your mind.</p>
+    </div>
+  </section>
 
-    <button type="button" class="submit-btn" onclick="submitAssessment()">Submit</button>
-  </form>
-</section>
+  <!-- Interactive Tools -->
+  <section id="tools">
+    <div class="container">
+      <h2>3. Interactive Tools</h2>
+      <div class="section-content">
+        <!-- Feature Cards with Clickable Links -->
+        <a href="stress-tracker.html" class="feature-card fade-in">
+          <i class="fas fa-stethoscope"></i>
+          <h3>Stress Tracker</h3>
+          <p>Monitor your stress levels and learn ways to reduce stress effectively.</p>
+        </a>
+        <a href="mood-journal.html" class="feature-card fade-in">
+          <i class="fas fa-sun"></i>
+          <h3>Mood Journal</h3>
+          <p>Track your moods daily to identify patterns and improve mental health.</p>
+        </a>
+        <a href="digital-detox.html" class="feature-card fade-in">
+          <i class="fas fa-bolt"></i>
+          <h3>Digital Detox Planner</h3>
+          <p>Create and stick to your digital detox plan for a healthier balance.</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
-<!-- RESULTS Section -->
-<section id="results" class="container">
-  <h2>Your Digital Well-Being Results</h2>
-  <div class="result">
-    <p><strong>Stress Level:</strong> <span id="stress-result"></span></p>
-    <p><strong>Phone Usage:</strong> <span id="phone-time-result"></span></p>
-  </div>
-  <p>Based on your responses, we recommend taking regular breaks and setting limits on screen time to improve your digital well-being.</p>
-</section>
+  <!-- Resource Selection -->
+  <section id="resources" class="fade-in">
+    <div class="container">
+      <h2>4. Resource Selection</h2>
+      <p>Access a curated collection of educational content to help you improve your digital well-being.</p>
+    </div>
+  </section>
 
-<script>
-  // Function to handle the assessment form submission
-  function submitAssessment() {
-    const stress = document.querySelector('input[name="stress"]:checked');
-    const phoneTime = document.querySelector('input[name="phone-time"]:checked');
+  <!-- Community Hub -->
+  <section id="community">
+    <div class="container">
+      <h2>5. Community Hub</h2>
+      <p>Join a community of like-minded individuals who support each other on their well-being journey.</p>
+    </div>
+  </section>
 
-    if (!stress || !phoneTime) {
-      alert("Please answer all questions.");
-      return;
-    }
+  <!-- AI-Powered Well-Being Advisor -->
+  <section id="ai-advisor" class="fade-in">
+    <div class="container">
+      <h2>6. AI-Powered Well-Being Advisor</h2>
+      <p>Get personalized advice and recommendations to improve your mental and digital well-being.</p>
+    </div>
+  </section>
 
-    // Store responses in localStorage to pass to the result section
-    localStorage.setItem('stress', stress.value);
-    localStorage.setItem('phone-time', phoneTime.value);
+  <!-- Contact Info -->
+  <footer>
+    <p>For more information and feedback, contact us at <a href="mailto:support@mentalappgmail.com">support@mentalappgmail.com</a></p>
+  </footer>
 
-    // Scroll to the results section
-    window.location.hash = "#results";
-
-    // Display the results dynamically
-    displayResults();
-  }
-
-  // Function to display the results dynamically
-  function displayResults() {
-    const stress = localStorage.getItem('stress');
-    const phoneTime = localStorage.getItem('phone-time');
-
-    if (stress && phoneTime) {
-      document.getElementById('stress-result').textContent = stress;
-      document.getElementById('phone-time-result').textContent = phoneTime;
-    }
-  }
-
-  // Display the results if the user is directly on the results page
-  if (window.location.hash === "#results") {
-    displayResults();
-  }
-</script>
-
+  <!-- FontAwesome for Icons (Optional, remove if not needed) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
-
